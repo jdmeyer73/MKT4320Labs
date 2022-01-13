@@ -46,6 +46,8 @@ Use this file to answer the following questions.  Include any output used to ans
 **Question** *(4 points)*  
 Create a table of summary statistics for `unitsold`.  What is the mean units sold per week? Does there appear to be any monthly seasonality?  In other words, do sales appear to be much higher in some months than in others?  Describe any seasonality you see.
 
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#measures-of-centrality-and-dispersion){target="_blank" rel="noopener"}
+
 **Code**
 ```{r question01}
 # Put your code for Q1 in this chunk
@@ -58,6 +60,8 @@ Create a table of summary statistics for `unitsold`.  What is the mean units sol
 
 **Question** *(3 points)*  
 Instead of using a table of summary statistics, use a column chart.  Does this make the seasonality easier to identify?  Why or why not?
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#column-charts){target="_blank" rel="noopener"}
 
 **Code**
 ```{r question02}
@@ -85,6 +89,8 @@ Does having the brand featured in an ad campaign appear to increase units sold? 
 **Question** *(4 points)*  
 Is there a significant correlation between the price of the product and the units sold? Is the result surprising? Why or why not?
 
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#prediction){target="_blank" rel="noopener"}
+
 **Code**
 ```{r question04}
 # Put your code for Q4 in this chunk
@@ -103,6 +109,8 @@ Using the same data set, we want to understand what drives units sold per week, 
 **Question** *(7 points)*  
 Of the variables that a marketing manager can control, which are significant?  Interpret what the regression coefficients mean for these variables.
 
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#the-lm-function){target="_blank" rel="noopener"}
+
 **Code**
 ```{r question05}
 # Put your code for Q5 in this chunk
@@ -116,7 +124,7 @@ Of the variables that a marketing manager can control, which are significant?  I
 **Question** *(4 points)*  
 Use the `predict.lm()` function (see ) to predict the number of units sold in July (month="Jul") for both levels of ad campaign, when the price is $8, and the product is not on an endcap. Request confidence intervals on these predictions. What is the difference in the predicted units sold for when there is and is not an ad campaign?  Where else could you have easily gotten the difference you just reported?
 
-See [this section](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#prediction) of the R Tutorial for help on creating the predictions.
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#prediction){target="_blank" rel="noopener"}
 
 **Code**
 ```{r question06}
@@ -159,7 +167,7 @@ Is the interaction term significant?  What is the p-value.  What is the estimate
 **Question** *(7 points)*  
 Create a margin plot for the continuous variable price for when we have an ad campaign and when we do not have an ad campaign. Interpret the margin plot, focusing on how price affects units sold under the different levels of ad campaign.
 
-See [this section](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#continuous-iv-at-levels-of-factor-iv) of the R Tutorial for help on producing the margin plot.
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#continuous-iv-at-levels-of-factor-iv){target="_blank" rel="noopener"}
 
 **Code**
 ```{r question09}
