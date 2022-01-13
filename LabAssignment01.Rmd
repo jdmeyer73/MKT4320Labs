@@ -1,0 +1,178 @@
+---
+title: "Lab Assignment 1"
+output:
+  html_document:
+    df_print: paged
+---
+```{r echo=FALSE}
+knitr::opts_chunk$set(comment=NA)
+```
+
+```{r loadpackages, echo=FALSE, message=FALSE}
+# The following packages may be helpful for this assignment
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(htmlTable)
+library(tidyr)
+```
+
+```{r loaddata, echo=FALSE}
+# Load data here
+# Change directory if file is not in your working directory
+load("candydata.rdata")
+```
+
+# Examining and Summarizing Data
+
+## Overview
+
+The [candydata.rdata]("candydata.rdata") file contains a data frame, `candydata`, which has weekly unit sales for a bag of candy over 135 weeks at a particular grocery store, starting in February 2010.  The unit sales are averaged across all store locations. The following variables are in the data:
+
+* `ad`: Factor variable with two levels (*Yes* if brand was featured in an ad campaign that week, *No* otherwise)
+* `endcap`: Factor variable with two levels (*Yes* if brand was displayed on an end cap that week, *No* otherwise)
+* `unitssold`: number of units sold for the week, in 10,000s
+* `weeknum`: the sequential week number
+* `price`: the price for the week, in dollars
+* `date`: the date of the week, with weeks starting on Mondays
+* `month`: Factor variable with 12 levels (Abbreviated month name)
+
+Use this file to answer the following questions.  Include any output used to answer the questions.
+
+---
+
+## Question 1
+
+**Question** *(4 points)*  
+Create a table of summary statistics for `unitsold`.  What is the mean units sold per week? Does there appear to be any monthly seasonality?  In other words, do sales appear to be much higher in some months than in others?  Describe any seasonality you see.
+
+**Code**
+```{r question01}
+# Put your code for Q1 in this chunk
+```
+**Answer**
+
+---
+
+## Question 2
+
+**Question** *(3 points)*  
+Instead of using a table of summary statistics, use a column chart.  Does this make the seasonality easier to identify?  Why or why not?
+
+**Code**
+```{r question02}
+# Put your code for Q2 in this chunk
+```
+**Answer**
+
+---
+
+## Question 3
+
+**Question** *(5 points)*  
+Does having the brand featured in an ad campaign appear to increase units sold? Describe how.  Does having the brand featured on an end cap appear to increase units sold? Describe how.
+
+**Code**
+``` {r question03}
+# Put your code for Q3 in this chunk
+```
+**Answer**
+
+---
+
+## Question 4
+
+**Question** *(4 points)*  
+Is there a significant correlation between the price of the product and the units sold? Is the result surprising? Why or why not?
+
+**Code**
+```{r question04}
+# Put your code for Q4 in this chunk
+```
+**Answer**
+
+
+# Linear Regression
+
+Using the same data set, we want to understand what drives units sold per week, while controlling for any seasonality that exists.  Therefore, run a linear regression model with ad campaign, end cap, price, and month as our predictor variables. Answer the following questions, providing output where needed. 
+
+---
+
+## Question 5
+
+**Question** *(7 points)*  
+Of the variables that a marketing manager can control, which are significant?  Interpret what the regression coefficients mean for these variables.
+
+**Code**
+```{r question05}
+# Put your code for Q5 in this chunk
+```
+**Answer**
+
+---
+
+## Question 6
+
+**Question** *(4 points)*  
+Use the `predict.lm()` function (see ) to predict the number of units sold in July (month="Jul") for both levels of ad campaign, when the price is $8, and the product is not on an endcap. Request confidence intervals on these predictions. What is the difference in the predicted units sold for when there is and is not an ad campaign?  Where else could you have easily gotten the difference you just reported?
+
+See [this section](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#prediction) of the R Tutorial for help on creating the predictions.
+
+**Code**
+```{r question06}
+# Put your code for Q6 in this chunk
+```
+**Answer**
+
+---
+
+## Question 7
+
+**Question** *(7 points)*  
+In the model you ran, both ad campaign and end cap were categorical (or factor) variables. Would these variables be considered intercept shifters, slope shifters, or both?  Why?
+
+**Code**
+```{r question07}
+# No code required for this question
+```
+**Answer**
+
+---
+
+## Question 8
+
+**Question** *(7 points)*  
+Run a new model without the monthly seasonality variable and without the endcap variable. However, include an interaction between ad and price.  Thus, you are to run the following model:
+$unitssold=\alpha+\beta_1price+\beta_2ad+\beta_3(price\times ad)$
+Is the interaction term significant?  What is the p-value.  What is the estimated regression equation when an ad campaign is run?  What is the estimated regression equation when ad ad campaign is not run?
+
+**Code**
+```{r question08}
+# Put your code for Q8 in this chunk
+```
+**Answer**
+
+---
+
+## Question 9
+
+**Question** *(7 points)*  
+Create a margin plot for the continuous variable price for when we have an ad campaign and when we do not have an ad campaign. Interpret the margin plot, focusing on how price affects units sold under the different levels of ad campaign.
+
+See [this section](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#continuous-iv-at-levels-of-factor-iv) of the R Tutorial for help on producing the margin plot.
+
+**Code**
+```{r question09}
+# Put your code for Q9 in this chunk
+```
+**Answer**
+
+---
+
+## Question 10
+
+**Question** *(15 points)*  
+Suppose you are a marketing consultant for this candy brand.  What marketing advice do you have for the brand’s marketing team?  Using bullet points, provide two or three carefully thought out suggestions.
+
+**Answer**
+
