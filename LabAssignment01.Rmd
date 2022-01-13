@@ -27,7 +27,7 @@ load("candydata.rdata")
 
 ## Overview
 
-The [candydata.rdata]("candydata.rdata") file contains a data frame, `candydata`, which has weekly unit sales for a bag of candy over 135 weeks at a particular grocery store, starting in February 2010.  The unit sales are averaged across all store locations. The following variables are in the data:
+The [candydata.rdata](./candydata.rdata) file contains a data frame, `candydata`, which has weekly unit sales for a bag of candy over 135 weeks at a particular grocery store, starting in February 2010.  The unit sales are averaged across all store locations. The following variables are in the data:
 
 * `ad`: Factor variable with two levels (*Yes* if brand was featured in an ad campaign that week, *No* otherwise)
 * `endcap`: Factor variable with two levels (*Yes* if brand was displayed on an end cap that week, *No* otherwise)
