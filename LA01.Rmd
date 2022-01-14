@@ -13,7 +13,7 @@ knitr::opts_chunk$set(comment=NA)
 library(dplyr)
 library(ggplot2)
 library(lubridate)
-library(htmlTable)
+library(flextable)
 library(tidyr)
 ```
 
@@ -35,7 +35,7 @@ The [candydata.rdata](./candydata.rdata) file contains a data frame, `candydata`
 * `date`: the date of the week, with weeks starting on Mondays
 * `month`: Factor variable with 12 levels (Abbreviated month name)
 
-Use this [LA01WriteUp.Rmd](./LA01WriteUp.Rmd) file to answer the questions below.  If a question requires code, put the code in the code chunk (under **Code**). When complete, save submit the completed "LA01WriteUp.Rmd" to Canvas. 
+Use this [LA01WriteUp.Rmd](./LA01WriteUp.Rmd) file to answer the questions below.  If a question requires code, put the code in the code chunk (under **Code**). When complete, Knit the file to PDF, copy that file to your own machine (if necessary), and submit the PDF file to Canvas. 
 
 ---
 

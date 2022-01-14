@@ -1,25 +1,30 @@
 ---
 title: "Lab Assignment 1 Write-Up"
+author:  "YOUR NAME HERE"
 output:
   html_document:
     df_print: paged
+  pdf_document:
+    latex_engine: xelatex
 ---
 ```{r echo=FALSE}
+# NOTE: DO NOT CHANGE ANYTHING HERE
 knitr::opts_chunk$set(comment=NA)
 ```
 
 ```{r loadpackages, echo=FALSE, message=FALSE}
 # The following packages may be helpful for this assignment
+# NOTE: Add any packages that are needed below as your write code
 library(dplyr)
 library(ggplot2)
 library(lubridate)
-library(htmlTable)
+library(flextable)
 library(tidyr)
 ```
 
 ```{r loaddata, echo=FALSE}
 # Load data here
-# Change directory if file is not in your working directory
+# NOTE: Change directory if file is not in your working directory
 load("candydata.rdata")
 ```
 
@@ -35,6 +40,7 @@ load("candydata.rdata")
 
 ---
 
+\newpage
 ## Question 2
 
 **Code**
@@ -45,6 +51,7 @@ load("candydata.rdata")
 
 ---
 
+\newpage
 ## Question 3
 
 **Code**
@@ -55,6 +62,7 @@ load("candydata.rdata")
 
 ---
 
+\newpage
 ## Question 4
 
 **Code**
@@ -65,6 +73,7 @@ load("candydata.rdata")
 
 ---
 
+\newpage
 ## Question 5
 
 **Code**
@@ -75,6 +84,7 @@ load("candydata.rdata")
 
 ---
 
+\newpage
 ## Question 6
 
 **Code**
@@ -85,6 +95,7 @@ load("candydata.rdata")
 
 ---
 
+\newpage
 ## Question 7
 
 **Code**
@@ -95,6 +106,7 @@ load("candydata.rdata")
 
 ---
 
+\newpage
 ## Question 8
 
 **Code**
@@ -105,6 +117,7 @@ load("candydata.rdata")
 
 ---
 
+\newpage
 ## Question 9
 
 **Code**
@@ -115,6 +128,7 @@ load("candydata.rdata")
 
 ---
 
+\newpage
 ## Question 10
 
 **Answer**
