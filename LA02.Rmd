@@ -1,5 +1,5 @@
 ---
-title: "Lab Assignment 1"
+title: "Lab Assignment 2"
 output:
   html_document:
     df_print: paged
