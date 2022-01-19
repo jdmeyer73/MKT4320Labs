@@ -79,8 +79,8 @@ In preparation for running a logistic regression, create training ($75\%$) and t
 **Question** *(6 points)*  
 Run a logistic regression on the training sample only, using `age`, `balance`, `homeins`, `carloan`, `preout`, and `educ` as the predictors of the dependent variable `buy`.  Discuss the overall model fit on the training sample, including McFadden's pseudo-$R^2$, the classification matrix, and the ROC curve. You will need the following user-defined functions:
 
-* [logreg_cm]("logreg_cm.R") produces the Classification Matrix
-* [logreg_roc]("logreg_roc.R") produces the ROC Curves
+* [logreg_cm](./logreg_cm.R) produces the Classification Matrix
+* [logreg_roc](./logreg_roc.R) produces the ROC Curves
 
 [R Tutorial for running model](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#logistic-regression-using-glm){target="_blank" rel="noopener"}  
 [R Tutorial for classification matrix](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#classification-matrix){target="_blank" rel="noopener"}  
@@ -98,7 +98,7 @@ Discuss the overall model fit on the holdout sample using the classification mat
 ## Question 6
 
 **Question** *(4 points)*  
-Use the user-defined function [or_table]("or_table.R") to produce a table with odds-ratio coefficients.  Which continuous variables significantly increase the odds of the customer purchasing car insurance? Interpret any that are significant.
+Use the user-defined function [or_table](./or_table.R) to produce a table with odds-ratio coefficients.  Which continuous variables significantly increase the odds of the customer purchasing car insurance? Interpret any that are significant.
 
 [R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#logistic-regression-using-glm){target="_blank" rel="noopener"}
 
@@ -114,7 +114,7 @@ Which levels of the factor/categorical variables significantly increase the odds
 ## Question 8
 
 **Question** *(6 points)*  
-Use the user-defined function [gainlift]("gainlift.R") to produce gain and lift plots and tables. If we were to contact the top 20% of predicted buyers in the holdout sample, what percent of all buyers would we get?  What is our lift when contacting the top 20%. Interpret each number.
+Use the user-defined function [gainlift](./gainlift.R) to produce gain and lift plots and tables. If we were to contact the top 20% of predicted buyers in the holdout sample, what percent of all buyers would we get?  What is our lift when contacting the top 20%. Interpret each number.
 
 [R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#gainlift-charts-and-tables){target="_blank" rel="noopener"}
 

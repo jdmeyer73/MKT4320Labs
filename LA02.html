@@ -216,8 +216,8 @@ In preparation for running a logistic regression, create training (<span class="
 <p><strong>Question</strong> <em>(6 points)</em><br />
 Run a logistic regression on the training sample only, using <code>age</code>, <code>balance</code>, <code>homeins</code>, <code>carloan</code>, <code>preout</code>, and <code>educ</code> as the predictors of the dependent variable <code>buy</code>. Discuss the overall model fit on the training sample, including McFadden’s pseudo-<span class="math inline">\(R^2\)</span>, the classification matrix, and the ROC curve. You will need the following user-defined functions:</p>
 <ul>
-<li><a href="%22logreg_cm.R%22">logreg_cm</a> produces the Classification Matrix</li>
-<li><a href="%22logreg_roc.R%22">logreg_roc</a> produces the ROC Curves</li>
+<li><a href="./logreg_cm.R">logreg_cm</a> produces the Classification Matrix</li>
+<li><a href="./logreg_roc.R">logreg_roc</a> produces the ROC Curves</li>
 </ul>
 <p><a href="https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#logistic-regression-using-glm" target="_blank" rel="noopener">R Tutorial for running model</a><br />
 <a href="https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#classification-matrix" target="_blank" rel="noopener">R Tutorial for classification matrix</a><br />
@@ -233,7 +233,7 @@ Discuss the overall model fit on the holdout sample using the classification mat
 <div id="question-6" class="section level2">
 <h2>Question 6</h2>
 <p><strong>Question</strong> <em>(4 points)</em><br />
-Use the user-defined function <a href="%22or_table.R%22">or_table</a> to produce a table with odds-ratio coefficients. Which continuous variables significantly increase the odds of the customer purchasing car insurance? Interpret any that are significant.</p>
+Use the user-defined function <a href="./or_table.R">or_table</a> to produce a table with odds-ratio coefficients. Which continuous variables significantly increase the odds of the customer purchasing car insurance? Interpret any that are significant.</p>
 <p><a href="https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#logistic-regression-using-glm" target="_blank" rel="noopener">R Tutorial</a></p>
 <hr />
 </div>
@@ -246,7 +246,7 @@ Which levels of the factor/categorical variables significantly increase the odds
 <div id="question-8" class="section level2">
 <h2>Question 8</h2>
 <p><strong>Question</strong> <em>(6 points)</em><br />
-Use the user-defined function <a href="%22gainlift.R%22">gainlift</a> to produce gain and lift plots and tables. If we were to contact the top 20% of predicted buyers in the holdout sample, what percent of all buyers would we get? What is our lift when contacting the top 20%. Interpret each number.</p>
+Use the user-defined function <a href="./gainlift.R">gainlift</a> to produce gain and lift plots and tables. If we were to contact the top 20% of predicted buyers in the holdout sample, what percent of all buyers would we get? What is our lift when contacting the top 20%. Interpret each number.</p>
 <p><a href="https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#gainlift-charts-and-tables" target="_blank" rel="noopener">R Tutorial</a></p>
 <hr />
 </div>
