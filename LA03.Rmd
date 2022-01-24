@@ -1,0 +1,133 @@
+---
+title: "Lab Assignment 3"
+output:
+  html_document:
+    df_print: paged
+---
+```{r echo=FALSE}
+knitr::opts_chunk$set(comment=NA)
+```
+
+```{r loadpackages, echo=FALSE, message=FALSE}
+# The following packages may be helpful for this assignment
+library(dplyr)
+library(ggplot2)
+library(flextable)
+library(tidyr)
+```
+
+```{r loaddata, echo=FALSE}
+# Load data here
+# Change directory if file is not in your working directory
+load("insalescall.rdata")
+```
+
+# Logistic Regression
+
+The [insalescall.rdata](./insalescall.rdata) file contains a data frame, `insalescall`, which has data on about $3800$ customers of a bank that also sells insurance. The customers in the data were contacted to see if they wanted to buy car insurance with specific levels of coverage. The outcome variable, `buy`, is a factor variable with two levels: *Yes* if they bought and *No* if they did not buy. As these are current customers, the bank has several other variables on each customers:
+
+* `age`: age of the customer
+* `balance`: average bank balance over the past $12$ months
+* `carloan`: factor variable with two levels (*Yes* if the customer has a car loan through the bank, *No* otherwise)
+* `educ`: factor variable with three levels indicating education level (*LT_HS* for less than high school, *HS* for high school, *GT_HS* for some college and above)
+* `marital`: factor variable with three levels indicating marital status (*Divorced*, *Married*, *Single*)
+* `homeins`: factor variable with two levels (*Yes* if the customer has homeowner's insurance through the bank, *No* otherwise)
+* `preout`: factor variable with three levels indicating the result of a previous, non-car insurance sales call (*No previous*, *Failure*, *Success*)
+
+The goal is to determine what customer characteristics can be used to predict the likelihood of purchase.  To begin, get a feel for some of the variables by answering the following questions.  Include any output used to answer the questions.
+
+Use this [LA02WriteUp.Rmd](./LA02WriteUp.Rmd) file to answer the questions below.  If a question requires code, put the code in the code chunk (under **Code**). When complete, Knit the file to PDF, save that file and submit the PDF file to Canvas.  
+
+**NOTE**: If using BGSU's Virtual Computing Lab, you cannot Knit to PDF.  In that situation, download the ".Rmd" file and submit that to Canvas.
+
+---
+
+## Question 1
+
+**Question** *(4 points)*  
+Using summary statistics, answer the following questions:
+
+a. What percent of customers purchased car insurance?
+b. How does the average age and balance compare for those that purchased and those that did not purchase? Do you think these variables will drive the purchase of car insurance?
+
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#tables-and-statistics){target="_blank" rel="noopener"}
+
+---
+
+## Question 2
+
+**Question** *(4 points)*  
+Create stacked bar charts to visualize how education level might affect the purchase of car insurance.  What percent of college graduates purchased college insurance? Create a second stacked bar chart for marital status and the purchase of car insurance. How does being married compare with the other two categories in terms of buying car insurance?
+
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#stacked-bar-chart){target="_blank" rel="noopener"}
+
+---
+
+## Question 3
+
+**Question** *(3 points)*  
+In preparation for running a logistic regression, create training ($75\%$) and test/holdout ($25\%$) samples. Use a `set.seed(4320)` so that everyone produces the same samples. Report how many observations each sample has and the number of observations that bought car insurance.
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#creating-train-and-test-samples){target="_blank" rel="noopener"}
+
+---
+
+## Question 4
+
+**Question** *(6 points)*  
+Run a logistic regression on the training sample only, using `age`, `balance`, `homeins`, `carloan`, `preout`, and `educ` as the predictors of the dependent variable `buy`.  Discuss the overall model fit on the training sample, including McFadden's pseudo-$R^2$, the classification matrix, and the ROC curve. You will need the following user-defined functions:
+
+* [logreg_cm](./logreg_cm.R) produces the Classification Matrix
+* [logreg_roc](./logreg_roc.R) produces the ROC Curves
+
+[R Tutorial for running model](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#logistic-regression-using-glm){target="_blank" rel="noopener"}  
+[R Tutorial for classification matrix](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#classification-matrix){target="_blank" rel="noopener"}  
+[R Tutorial for ROC curve](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#roc-curve){target="_blank" rel="noopener"}
+
+---
+
+## Question 5
+
+**Question** *(5 points)*  
+Discuss the overall model fit on the holdout sample using the classification matrix and ROC curve.
+
+---
+
+## Question 6
+
+**Question** *(4 points)*  
+Use the user-defined function [or_table](./or_table.R) to produce a table with odds-ratio coefficients.  Which continuous variables significantly increase the odds of the customer purchasing car insurance? Interpret any that are significant.
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#logistic-regression-using-glm){target="_blank" rel="noopener"}
+
+---
+
+## Question 7
+
+**Question** *(10 points)*  
+Which levels of the factor/categorical variables significantly increase the odds of the customer purchasing car insurance?  Interpret each of these (be sure to reference the base category).
+
+---
+
+## Question 8
+
+**Question** *(6 points)*  
+Use the user-defined function [gainlift](./gainlift.R) to produce gain and lift plots and tables. If we were to contact the top 20% of predicted buyers in the holdout sample, what percent of all buyers would we get?  What is our lift when contacting the top 20%. Interpret each number.
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#gainlift-charts-and-tables){target="_blank" rel="noopener"}
+
+---
+
+## Question 9
+
+**Question** *(3 points)*  
+Suppose the goal is to reach 50% of those in the holdout sample that would actually buy.  Approximately what proportion of customers (ranked in order of likelihood to buy) would we need to contact?
+
+---
+
+## Question 10
+
+**Question** *(15 points)*  
+Suppose you are a marketing consultant for this bank.  What marketing advice do you have for the brand’s marketing team?  Using bullet points, provide two or three carefully thought out suggestions.

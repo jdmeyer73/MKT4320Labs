@@ -12,22 +12,6 @@ output:
 knitr::opts_chunk$set(comment=NA)
 ```
 
-```{r loadpackages, echo=FALSE, message=FALSE}
-# The following packages may be helpful for this assignment
-# NOTE: Add any packages that are needed below as your write code
-library(dplyr)
-library(ggplot2)
-library(lubridate)
-library(flextable)
-library(tidyr)
-```
-
-```{r loaddata, echo=FALSE}
-# Load data here
-# NOTE: Change directory if file is not in your working directory
-load("candydata.rdata")
-```
-
 ---
 
 ## Question 1
@@ -81,55 +65,3 @@ load("candydata.rdata")
 # Put your code for Q5 in this chunk
 ```
 **Answer**
-
----
-
-\newpage
-## Question 6
-
-**Code**
-```{r question06}
-# Put your code for Q6 in this chunk
-```
-**Answer**
-
----
-
-\newpage
-## Question 7
-
-**Code**
-```{r question07}
-# No code required for this question
-```
-**Answer**
-
----
-
-\newpage
-## Question 8
-
-**Code**
-```{r question08}
-# Put your code for Q8 in this chunk
-```
-**Answer**
-
----
-
-\newpage
-## Question 9
-
-**Code**
-```{r question09}
-# Put your code for Q9 in this chunk
-```
-**Answer**
-
----
-
-\newpage
-## Question 10
-
-**Answer**
-

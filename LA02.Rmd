@@ -12,6 +12,7 @@ knitr::opts_chunk$set(comment=NA)
 # The following packages may be helpful for this assignment
 library(dplyr)
 library(ggplot2)
+library(lubridate)
 library(flextable)
 library(tidyr)
 ```
@@ -19,115 +20,115 @@ library(tidyr)
 ```{r loaddata, echo=FALSE}
 # Load data here
 # Change directory if file is not in your working directory
-load("insalescall.rdata")
+load("candydata.rdata")
 ```
 
-# Logistic Regression
+# Overview
 
-The [insalescall.rdata](./insalescall.rdata) file contains a data frame, `insalescall`, which has data on about $3800$ customers of a bank that also sells insurance. The customers in the data were contacted to see if they wanted to buy car insurance with specific levels of coverage. The outcome variable, `buy`, is a factor variable with two levels: *Yes* if they bought and *No* if they did not buy. As these are current customers, the bank has several other variables on each customers:
+The [candydata.rdata](./candydata.rdata) file contains a data frame, `candydata`, which has weekly unit sales for a bag of candy over 135 weeks at a particular grocery store, starting in February 2010.  The unit sales are averaged across all store locations. The following variables are in the data:
 
-* `age`: age of the customer
-* `balance`: average bank balance over the past $12$ months
-* `carloan`: factor variable with two levels (*Yes* if the customer has a car loan through the bank, *No* otherwise)
-* `educ`: factor variable with three levels indicating education level (*LT_HS* for less than high school, *HS* for high school, *GT_HS* for some college and above)
-* `marital`: factor variable with three levels indicating marital status (*Divorced*, *Married*, *Single*)
-* `homeins`: factor variable with two levels (*Yes* if the customer has homeowner's insurance through the bank, *No* otherwise)
-* `preout`: factor variable with three levels indicating the result of a previous, non-car insurance sales call (*No previous*, *Failure*, *Success*)
+* `ad`: Factor variable with two levels (*Yes* if brand was featured in an ad campaign that week, *No* otherwise)
+* `endcap`: Factor variable with two levels (*Yes* if brand was displayed on an end cap that week, *No* otherwise)
+* `unitssold`: number of units sold for the week, in 10,000s
+* `weeknum`: the sequential week number
+* `price`: the price for the week, in dollars
+* `date`: the date of the week, with weeks starting on Mondays
+* `month`: Factor variable with 12 levels (Abbreviated month name)
 
-The goal is to determine what customer characteristics can be used to predict the likelihood of purchase.  To begin, get a feel for some of the variables by answering the following questions.  Include any output used to answer the questions.
-
-Use this [LA02WriteUp.Rmd](./LA02WriteUp.Rmd) file to answer the questions below.  If a question requires code, put the code in the code chunk (under **Code**). When complete, Knit the file to PDF, save that file and submit the PDF file to Canvas.  
+Use this [LA01WriteUp.Rmd](./LA01WriteUp.Rmd) file to answer the questions below.  If a question requires code, put the code in the code chunk (under **Code**). When complete, Knit the file to PDF, save that file and submit the PDF file to Canvas.  
 
 **NOTE**: If using BGSU's Virtual Computing Lab, you cannot Knit to PDF.  In that situation, download the ".Rmd" file and submit that to Canvas.
+
+---
+
+## ***Examining and Summarizing Data***
 
 ---
 
 ## Question 1
 
 **Question** *(4 points)*  
-Using summary statistics, answer the following questions:
+Create a table of summary statistics for `unitsold`.  What is the mean units sold per week? Does there appear to be any monthly seasonality?  In other words, do sales appear to be much higher in some months than in others?  Describe any seasonality you see.
 
-a. What percent of customers purchased car insurance?
-b. How does the average age and balance compare for those that purchased and those that did not purchase? Do you think these variables will drive the purchase of car insurance?
-
-
-[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#tables-and-statistics){target="_blank" rel="noopener"}
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#measures-of-centrality-and-dispersion){target="_blank" rel="noopener"}
 
 ---
 
 ## Question 2
 
-**Question** *(4 points)*  
-Create stacked bar charts to visualize how education level might affect the purchase of car insurance.  What percent of college graduates purchased college insurance? Create a second stacked bar chart for marital status and the purchase of car insurance. How does being married compare with the other two categories in terms of buying car insurance?
+**Question** *(3 points)*  
+Instead of using a table of summary statistics, use a column chart.  Does this make the seasonality easier to identify?  Why or why not?
 
-
-[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#stacked-bar-chart){target="_blank" rel="noopener"}
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#column-charts){target="_blank" rel="noopener"}
 
 ---
 
 ## Question 3
 
-**Question** *(3 points)*  
-In preparation for running a logistic regression, create training ($75\%$) and test/holdout ($25\%$) samples. Use a `set.seed(4320)` so that everyone produces the same samples. Report how many observations each sample has and the number of observations that bought car insurance.
-
-[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#creating-train-and-test-samples){target="_blank" rel="noopener"}
+**Question** *(5 points)*  
+Does having the brand featured in an ad campaign appear to increase units sold? Describe how.  Does having the brand featured on an end cap appear to increase units sold? Describe how.
 
 ---
 
 ## Question 4
 
-**Question** *(6 points)*  
-Run a logistic regression on the training sample only, using `age`, `balance`, `homeins`, `carloan`, `preout`, and `educ` as the predictors of the dependent variable `buy`.  Discuss the overall model fit on the training sample, including McFadden's pseudo-$R^2$, the classification matrix, and the ROC curve. You will need the following user-defined functions:
+**Question** *(4 points)*  
+Is there a significant correlation between the price of the product and the units sold? Is the result surprising? Why or why not?
 
-* [logreg_cm](./logreg_cm.R) produces the Classification Matrix
-* [logreg_roc](./logreg_roc.R) produces the ROC Curves
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#prediction){target="_blank" rel="noopener"}
 
-[R Tutorial for running model](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#logistic-regression-using-glm){target="_blank" rel="noopener"}  
-[R Tutorial for classification matrix](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#classification-matrix){target="_blank" rel="noopener"}  
-[R Tutorial for ROC curve](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#roc-curve){target="_blank" rel="noopener"}
+---
+
+## ***Linear Regression***
+
+We want to understand what drives units sold per week, while controlling for any seasonality that exists.  Therefore, run a linear regression model with ad campaign, end cap, price, and month as our predictor variables. Answer the following questions, providing output where needed. 
 
 ---
 
 ## Question 5
 
-**Question** *(5 points)*  
-Discuss the overall model fit on the holdout sample using the classification matrix and ROC curve.
+**Question** *(7 points)*  
+Of the variables that a marketing manager can control, which are significant?  Interpret what the regression coefficients mean for these variables.
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#the-lm-function){target="_blank" rel="noopener"}
 
 ---
 
 ## Question 6
 
 **Question** *(4 points)*  
-Use the user-defined function [or_table](./or_table.R) to produce a table with odds-ratio coefficients.  Which continuous variables significantly increase the odds of the customer purchasing car insurance? Interpret any that are significant.
+Use the `predict.lm()` function to predict the number of units sold in July (month="Jul") for both levels of ad campaign, when the price is $8, and the product is not on an endcap. Request confidence intervals on these predictions. What is the difference in the predicted units sold for when there is and is not an ad campaign?  Where else could you have easily gotten the difference you just reported?
 
-[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#logistic-regression-using-glm){target="_blank" rel="noopener"}
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#prediction){target="_blank" rel="noopener"}
 
 ---
 
 ## Question 7
 
-**Question** *(10 points)*  
-Which levels of the factor/categorical variables significantly increase the odds of the customer purchasing car insurance?  Interpret each of these (be sure to reference the base category).
+**Question** *(7 points)*  
+In the model you ran, both ad campaign and end cap were categorical (or factor) variables. Would these variables be considered intercept shifters, slope shifters, or both?  Why?
 
 ---
 
 ## Question 8
 
-**Question** *(6 points)*  
-Use the user-defined function [gainlift](./gainlift.R) to produce gain and lift plots and tables. If we were to contact the top 20% of predicted buyers in the holdout sample, what percent of all buyers would we get?  What is our lift when contacting the top 20%. Interpret each number.
-
-[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#gainlift-charts-and-tables){target="_blank" rel="noopener"}
+**Question** *(7 points)*  
+Run a new model without the monthly seasonality variable and without the endcap variable. However, include an interaction between ad and price.  Thus, you are to run the following model:  
+$unitssold=\alpha+\beta_1price+\beta_2ad+\beta_3(price\times ad)$  
+Is the interaction term significant?  What is the p-value.  What is the estimated regression equation when an ad campaign is run?  What is the estimated regression equation when ad ad campaign is not run?
 
 ---
 
 ## Question 9
 
-**Question** *(3 points)*  
-Suppose the goal is to reach 50% of those in the holdout sample that would actually buy.  Approximately what proportion of customers (ranked in order of likelihood to buy) would we need to contact?
+**Question** *(7 points)*  
+Create a margin plot for the continuous variable price for when we have an ad campaign and when we do not have an ad campaign. Interpret the margin plot, focusing on how price affects units sold under the different levels of ad campaign.
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#continuous-iv-at-levels-of-factor-iv){target="_blank" rel="noopener"}
 
 ---
 
 ## Question 10
 
 **Question** *(15 points)*  
-Suppose you are a marketing consultant for this bank.  What marketing advice do you have for the brand’s marketing team?  Using bullet points, provide two or three carefully thought out suggestions.
+Suppose you are a marketing consultant for this candy brand.  What marketing advice do you have for the brand’s marketing team?  Using bullet points, provide two or three carefully thought out suggestions.

@@ -1,5 +1,5 @@
 ---
-title: "Lab Assignment 2 Write-Up"
+title: "Lab Assignment 3 Write-Up"
 author:  "YOUR NAME HERE"
 output:
   html_document:
@@ -17,7 +17,6 @@ knitr::opts_chunk$set(comment=NA)
 # NOTE: Add any packages that are needed below as your write code
 library(dplyr)
 library(ggplot2)
-library(lubridate)
 library(flextable)
 library(tidyr)
 ```
@@ -25,7 +24,7 @@ library(tidyr)
 ```{r loaddata, echo=FALSE}
 # Load data here
 # NOTE: Change directory if file is not in your working directory
-load("candydata.rdata")
+load("insalescall.rdata")
 ```
 
 ---
@@ -122,7 +121,7 @@ load("candydata.rdata")
 
 **Code**
 ```{r question09}
-# Put your code for Q9 in this chunk
+# No code required for this question
 ```
 **Answer**
 
