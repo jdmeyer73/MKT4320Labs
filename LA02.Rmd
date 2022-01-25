@@ -35,7 +35,7 @@ The [candydata.rdata](./candydata.rdata) file contains a data frame, `candydata`
 * `date`: the date of the week, with weeks starting on Mondays
 * `month`: Factor variable with 12 levels (Abbreviated month name)
 
-Use this [LA01WriteUp.Rmd](./LA01WriteUp.Rmd) file to answer the questions below.  If a question requires code, put the code in the code chunk (under **Code**). When complete, Knit the file to PDF, save that file and submit the PDF file to Canvas.  
+Use this [LA02WriteUp.Rmd](./LA02WriteUp.Rmd) file to answer the questions below.  If a question requires code, put the code in the code chunk (under **Code**). When complete, Knit the file to PDF, save that file and submit the PDF file to Canvas.  
 
 **NOTE**: If using BGSU's Virtual Computing Lab, you cannot Knit to PDF.  In that situation, download the ".Rmd" file and submit that to Canvas.
 

@@ -36,7 +36,7 @@ The [insalescall.rdata](./insalescall.rdata) file contains a data frame, `insale
 
 The goal is to determine what customer characteristics can be used to predict the likelihood of purchase.  To begin, get a feel for some of the variables by answering the following questions.  Include any output used to answer the questions.
 
-Use this [LA02WriteUp.Rmd](./LA02WriteUp.Rmd) file to answer the questions below.  If a question requires code, put the code in the code chunk (under **Code**). When complete, Knit the file to PDF, save that file and submit the PDF file to Canvas.  
+Use this [LA03WriteUp.Rmd](./LA03WriteUp.Rmd) file to answer the questions below.  If a question requires code, put the code in the code chunk (under **Code**). When complete, Knit the file to PDF, save that file and submit the PDF file to Canvas.  
 
 **NOTE**: If using BGSU's Virtual Computing Lab, you cannot Knit to PDF.  In that situation, download the ".Rmd" file and submit that to Canvas.
 
