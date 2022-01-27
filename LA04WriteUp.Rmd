@@ -1,0 +1,133 @@
+---
+title: "Lab Assignment 4 Write-Up"
+author:  "YOUR NAME HERE"
+output:
+  html_document:
+    df_print: paged
+  pdf_document:
+    latex_engine: xelatex
+---
+```{r echo=FALSE}
+# NOTE: DO NOT CHANGE ANYTHING HERE
+knitr::opts_chunk$set(comment=NA)
+```
+
+```{r loadpackages, echo=FALSE, message=FALSE}
+# The following packages may be helpful for this assignment
+# NOTE: Add any packages that are needed below as your write code
+library(dplyr)
+library(ggplot2)
+library(flextable)
+library(tidyr)
+library(questionr)
+library(effects)
+```
+
+```{r loaddata, echo=FALSE}
+# Load data here
+# NOTE: Change directory if file is not in your working directory
+load("cssalestgt.rdata")  # For Q1-Q5
+load("intchurn.rdata")  # For Q6-Q10
+```
+
+---
+
+## Question 1
+
+**Code**
+```{r question01}
+# Put your code for Q1 in this chunk
+```
+**Answer**
+
+---
+
+\newpage
+## Question 2
+
+**Code**
+```{r question02}
+# Put your code for Q2 in this chunk
+```
+**Answer**
+
+---
+
+\newpage
+## Question 3
+
+**Code**
+``` {r question03}
+# Put your code for Q3 in this chunk
+```
+**Answer**
+
+---
+
+\newpage
+## Question 4
+
+**Code**
+```{r question04}
+# Put your code for Q4 in this chunk
+```
+**Answer**
+
+---
+
+\newpage
+## Question 5
+
+**Answer**
+
+---
+
+\newpage
+## Question 6
+
+**Code**
+```{r question06}
+# Put your code for Q6 in this chunk
+```
+**Answer**
+
+---
+
+\newpage
+## Question 7
+
+**Code**
+```{r question07}
+# No code required for this question
+```
+**Answer**
+
+---
+
+\newpage
+## Question 8
+
+**Code**
+```{r question08}
+# Put your code for Q8 in this chunk
+```
+**Answer**
+
+---
+
+\newpage
+## Question 9
+
+**Code**
+```{r question09}
+# No code required for this question
+```
+**Answer**
+
+---
+
+\newpage
+## Question 10
+
+**Answer**
+

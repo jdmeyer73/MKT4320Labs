@@ -1,0 +1,139 @@
+---
+title: "Lab Assignment 4"
+output:
+  html_document:
+    df_print: paged
+---
+```{r echo=FALSE}
+knitr::opts_chunk$set(comment=NA)
+```
+
+Use this [LA04WriteUp.Rmd](./LA04WriteUp.Rmd) file to answer the questions below.  If a question requires code, put the code in the code chunk (under **Code**). When complete, Knit the file to PDF, save that file and submit the PDF file to Canvas.  
+
+**NOTE**: If using BGSU's Virtual Computing Lab, you cannot Knit to PDF.  In that situation, download the ".Rmd" file and submit that to Canvas.
+
+# Targeting Customers (Linear Regression)
+
+The [csalestgt.rdata](./csalestgt.rdata) file contains a data frame, `csalestgt`, which has data on a sample of about $2300$ customers that have purchased items in the past $24$ months from an online retailer that sells small household goods.  Given limited resources at the retailer, they would like to understand better who to target in future communications to increase revenue.  The outcome variable, `spend`, is the spending by the customer over the past $24$ months. The retailer has several other variables on each customer:
+
+* `agecat`: Factor variable with four levels for the customer's age category (18-24; 25-44; 45-64; 65+)
+* `credcat`: Factor variable with three levels for the customer's credit score classification (High, Medium, Low)
+* `freq`: Number of transactions over the past $24$ months
+* `kids`: Factor variable with two levels (*Yes* if household contains children under 18, *No* otherwise)
+* `loyalty`: Factor variable with two levels (*Yes* if the customer is a retailer loyalty card member, *No* otherwise)
+* `own`: Factor variable with two levels (*Yes* if the customer is a homeowner, *No* otherwise)
+* `rec`: Months since last purchase
+
+---
+
+## Question 1
+
+**Question** *(4 points)*  
+Create a correlation matrix for the three continuous variables (`spend`, `freq`, `rec`). Are `freq` and `rec` significantly correlated with `spend`?  Interpret the correlations (i.e., direction, strength).
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#correlation){target="_blank" rel="noopener"}
+
+---
+
+## Question 2
+
+**Question** *(4 points)*  
+Using summary statistics by group, do loyalty card holders (`loyalty`) appear to spend more or less? Which credit score category (`credcat`) spends the most?
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#measures-of-centrality-and-dispersion){target="_blank" rel="noopener"}
+
+---
+
+## Question 3
+
+**Question** *(4 points)*  
+Run a regression the following regression model:  
+$spend=\alpha+\beta_1rec+\beta_2own+\beta_3loyalty+\beta_4freq+\beta_5credcat+\beta_6(freq\times credcat)$
+Provide the results and assess the overall model fit.
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#the-lm-function){target="_blank" rel="noopener"}
+
+---
+
+## Question 4
+
+**Question** *(5 points)*  
+Create margin plots for `own`, `loyalty`, and the `freq x credcat` interaction. In each of your plots, use `scale_y_continuous(limits=c(300,475))` so that the y-axis is consistent across all plots. Based on the plots, which variable to you think is the most important, and why? In addition, describe  the interaction.
+
+[R Tutorial](https://jdmeyer73.github.io/MKT4320RTut/linear-regression.html#linregmarginplots){target="_blank" rel="noopener"}
+
+---
+
+## Question 5
+
+**Question** *(10 points)*
+
+Suppose you are a marketing consultant for this retailer. What marketing advice do you have for their marketing team?  Using bullet points, provide two or three carefully thought out suggestions.
+
+---
+
+# Retaining Customers (Logistic Regression)
+
+The [intchurn.rdata](./intchurn.rdata) file contains a data frame on a sample of about $4800$ customers that were customers of an internet service provider (ISP) in the previous month.  However, some of those customers churned within the last month.  The ISP would like to understand better what type of customer is more likely to churn.  With this information, they could use targeted promotions to those likely to churn in order to retain them.  The outcome variable, `churn`, is coded as *Yes* if they churned and *No* if they did not churn. The ISP has several other variables on each customer:
+
+* `tenure`: Length of time customer has been with the ISP, in months
+* `bill`: Billed amount in the previous month
+* `numsvcs`: Number of additional services the customer subscribes to from the ISP
+* `senior`: Factor variable with two levels (*Yes* if the customer is a senior citizen, *No* otherwise)
+* `gender`: Factor variable with two levels (*Male* and *Female*)
+* `married`: Factor variable with two levels (*Yes* if the customer is married, *No* otherwise)
+* `dep`: Factor variable with two levels (*Yes* if the customer has dependents, *No* otherwise)
+* `inttype`: Factor variable with two levels indicating the type of internet service (*DSL* and *Fiber*)
+* `contract`: Factor variable with three levels indicating the contract type (*Monthly*, *One year*, and *Two year*)
+* `ebill`: Factor variable with two levels (*Yes* if the customer uses electronic billing, *No* otherwise)
+* `payment`: Factor variable with four levels indicated how payments are made (*Bank transfer*, *Credit card*, *Bill pay*, and *Check*)
+
+---
+
+## Question 6
+
+**Question** *(5 points)*  
+What percent of customers churned?  How does this percent vary or change based on contract type?  Create a bar chart to show how tenure and billed amount differs by whether the customer churned or not?  What does this bar chart tell you?
+
+[R Tutorial for Frequency Tables](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#frequency-table){target="_blank" rel="noopener"}  
+[R Tutorial for Crosstabs](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#crosstabs){target="_blank" rel="noopener"}  
+[R Tutorial for Column Charts](https://jdmeyer73.github.io/MKT4320RTut/examining-and-summarizing-data.html#column-charts){target="_blank" rel="noopener"}
+
+---
+
+## Question 7
+
+**Question** *(6 points)*  
+In preparation for running a logistic regression, create training ($75\%$) and test/holdout ($25\%$) samples. Use a `set.seed(4320)` so that everyone produces the same samples. Then, run a logistic regression on the training sample with `churn` as the dependent variable and the following independent variables:  
+`tenure`, `numsvcs`, `bill`, `inttype`, `contract`, and an interaction between `inttype` and `numsvcs`.  
+Using the results of the training sample, what classification cutoff would you use to get the sensitivity and specificity to be about even (use the `logreg.cut` user-defined function to help)? How does that change the percent correctly classified?
+
+[R Tutorial for Estimating with Training   Sample](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#estimate-with-training-sample-only){target="_blank" rel="noopener"}  
+[R Tutorial for Classification   Matrix](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#classification-matrix){target="_blank" rel="noopener"}  
+[R Tutorial for Sensitivity/Specificity Plots](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#sensitivityspecificity-plot){target="_blank" rel="noopener"}
+
+---
+
+## Question 8
+
+**Question** *(8 points)*  
+Interpret the results of the `tenure`, `bill`, and `contract` variables, along with the interaction of `numsvcs` and `inttype`. To get the odds ratio for `numsvcs` for each of the levels of `inttype`, you will need to refer to the notes and exponentiate the coefficients manually (or in R). To help with the interpretation of the interaction, product margin plots for interaction terms.
+
+[R Tutorial for Getting Logit and OR Estimates](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#run-model-with-only-training-sample){target="_blank" rel="noopener"}  
+[R Tutorial for Margin Plots](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#margin-plots){target="_blank" rel="noopener"}
+
+---
+
+## Question 9
+
+**Question** *(4 points)*  
+Use the `gainlift` user-defined function to produce cumulative gains and cumulative lift charts and tables. If we were to contact the top 20% of predicted churners in the holdout sample, what percent would actually churn? Suppose the goal is to reach 80% of potential churners next month with a targeted promotion. Assuming the results from next month are similar to this month, approximately what proportion of customers (ranked in order of likelihood to churn) would we need to contact?
+
+[R Tutorial for Gain/Lift](https://jdmeyer73.github.io/MKT4320RTut/logistic-regression-binary.html#gainlift-charts-and-tables){target="_blank" rel="noopener"}
+
+---
+
+## Question 10
+
+**Question** *(10 points)*  
+Suppose you are a marketing consultant for this ISP.  What marketing advice do you have for the ISP’s team working on the targeted promotions to reduce churn? Using bullet points, provide two or three carefully thought out suggestions.
